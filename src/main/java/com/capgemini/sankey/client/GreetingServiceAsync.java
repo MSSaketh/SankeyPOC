@@ -6,5 +6,5 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
  * The async counterpart of <code>GreetingService</code>.
  */
 public interface GreetingServiceAsync {
-	void csvRead(String path,AsyncCallback<Object[]> callback) throws IllegalArgumentException;
+	void csvRead(String path, AsyncCallback<CSVmodel> callback) throws IllegalArgumentException;
 }

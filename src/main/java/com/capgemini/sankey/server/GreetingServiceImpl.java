@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.capgemini.sankey.client.CSVmodel;
 import com.capgemini.sankey.client.GreetingService;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
@@ -16,11 +17,13 @@ import au.com.bytecode.opencsv.CSVReader;
 /**
  * The server-side implementation of the RPC service.
  */
-@SuppressWarnings("serial")
+
 public class GreetingServiceImpl extends RemoteServiceServlet implements GreetingService {
 
+	private static final long serialVersionUID = 1L;
+
 	@Override
-	public Object[] csvRead(String path) {
+	public CSVmodel csvRead(String path) {
 
 		List<String> src = new ArrayList<String>();
 		List<String> dest = new ArrayList<String>();
@@ -103,8 +106,13 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements Greetin
 		csvList.add(finalCount);
 
 		System.out.println(csvList);
-		Object[] obj = new Object[] { finalFrom, finalTo, totalCount };
-		return obj;
+//		Object[] obj = new Object[] { finalFrom, finalTo, totalCount };
+
+		CSVmodel model = new CSVmodel();
+		model.setFrom(finalFrom);
+		model.setTo(finalTo);
+		model.setWeight(totalCount);
+		return model;
 	}
 
 }

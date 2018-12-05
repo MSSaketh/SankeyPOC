@@ -7,12 +7,12 @@
 
   <!-- Servlets -->
   <servlet>
-    <servlet-name>greetServlet</servlet-name>
+    <servlet-name>GreetingServiceImpl</servlet-name>
     <servlet-class>com.capgemini.sankey.server.GreetingServiceImpl</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>greetServlet</servlet-name>
+    <servlet-name>GreetingServiceImpl</servlet-name>
     <url-pattern>/pocsankey/greet</url-pattern>
   </servlet-mapping>
   
